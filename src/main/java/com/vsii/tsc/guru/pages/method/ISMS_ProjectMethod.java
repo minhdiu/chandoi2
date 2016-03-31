@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,19 +14,21 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import com.vsii.tsc.guru.pages.DiuTTM_ISMSPage;
-import com.vsii.tsc.guru.pages.DiuTTM_ProjectPage;
+import com.vsii.tsc.guru.pages.ISMSPage;
+import com.vsii.tsc.guru.pages.ISMS_ProjectPage;
 import com.vsii.tsc.utility.TestBase;
 
-public class DiuTTM_ProjectMethod
+public class ISMS_ProjectMethod
 {    
     
     WebDriver driver;    
-    public DiuTTM_ProjectPage ObjecProject = new DiuTTM_ProjectPage();
+    public ISMS_ProjectPage ObjecProject = new ISMS_ProjectPage();
+     ISMS_LoginPageMethod objLogin;
 
-    public DiuTTM_ProjectMethod(WebDriver driver) {
+    public ISMS_ProjectMethod(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, ObjecProject);      
+        PageFactory.initElements(driver, ObjecProject);  
+        objLogin = new ISMS_LoginPageMethod(TestBase.driver);
     }  
     
 public void GotoProjectPage(){
@@ -195,7 +196,12 @@ public void InputNoteArea(String Note){
 public void clickSaveNote_btn(){
     ObjecProject.logNote_Btn.click();
 }
-
+public void logAnoteSucc(String Note){
+    titletoclick();
+    ObjecProject.logAnoteBtn2.click();
+    ObjecProject.logArea.sendKeys(Note);
+    ObjecProject.LogBtn.click();
+}
 public void VerifyTrueResultafterClickDoneOrCancel(){
     Assert.assertEquals(ObjecProject.Issuetitle2.getText(), "Issues");
 }
@@ -240,6 +246,226 @@ public void VerifyCreateTaskDissplayCorrect(){
 }
 public void ClickrelationTab(){ 
     ObjecProject.relationTab.click();    
+}
+public void clickAddBtn(){ 
+    ObjecProject.addBtn.click();    
+}
+public void checkAIssue(){ 
+    ObjecProject.selectIssue_chb.click();    
+}
+public void clickSelectBtn(){ 
+    ObjecProject.SelectBtn.click();    
+}
+public String getFeatureDescripTitle(){ 
+    
+     return ObjecProject.featureDescripTitle.getText();   
+    
+}
+public String getExpfeatureDescripTitle(){ 
+   
+    return ObjecProject.ExpfeatureDescripTitle.getText();    
+}
+public void inputTasksummary(String Sum){ 
+    ObjecProject.Task_Sumary.sendKeys(Sum);
+}
+
+public void inputassign(String Sum){ 
+    ObjecProject.taskassignto_txb.click();
+    ObjecProject.taskassignto_txb.clear();
+    ObjecProject.taskassignto_txb.sendKeys(Sum);
+}
+public void clickVSIIProject(){ 
+    ObjecProject.VSIIProject.click();
+}
+public void selectkhacphucphongngua(){ 
+    ObjecProject.khacphucphongngua.click();
+}
+public void clickkhacphucphongnguataskBtn(){ 
+    ObjecProject.khacphucphongnguataskBtn.click();
+}
+public void clickCreate(){ 
+    ObjecProject.Create.click();
+}
+public void VerifyCreateTaskkppnDissplayCorrect(){
+    ObjecProject.mota.isDisplayed();
+    ObjecProject.phantich.isDisplayed();
+   
+    ObjecProject.giaiphap.isDisplayed();
+
+    ObjecProject.pheduyet.isDisplayed();
+
+  ObjecProject.thuchiengiaiphap.isDisplayed();
+
+  ObjecProject.kiemtra1.isDisplayed();
+    ObjecProject.kiemtra2.isDisplayed();
+    ObjecProject.dong.isDisplayed();
+    ObjecProject.huybo.isDisplayed();
+    ObjecProject.kppnTaskSum.isDisplayed();
+    ObjecProject.kppnassignTo.isDisplayed();
+   
+    ObjecProject.kppnisBillChk.isDisplayed();
+
+    ObjecProject.kppnTaskType.isDisplayed();
+
+  ObjecProject.kppnisBillChk.isDisplayed();
+
+  ObjecProject.kppnprojphase.isDisplayed();
+    ObjecProject.kppnInti.isDisplayed();
+    ObjecProject.kppndeadline.isDisplayed();
+    ObjecProject.kppnTags.isDisplayed();
+    ObjecProject.kppnprogress.isDisplayed();
+    ObjecProject.kppnDEscripTab.isDisplayed();
+    ObjecProject.kppnDeligationTab.isDisplayed();
+    ObjecProject.kppnExtrTab.isDisplayed();
+    ObjecProject.kppnRelatedTab.isDisplayed();
+}
+public void iputTakSumm(String Summ){ 
+    ObjecProject.kppnTaskSum.sendKeys(Summ);
+}
+public void iputAssign(String assign){ 
+    ObjecProject.kppnassignTo.click();
+    ObjecProject.kppnassignTo.clear();
+    ObjecProject.kppnassignTo.sendKeys(assign);
+    ObjecProject.kppnassignTo.sendKeys(Keys.ARROW_DOWN);
+    ObjecProject.kppnassignTo.sendKeys(Keys.ENTER);
+    
+}
+
+public void inpuInti(String Inti){
+    ObjecProject.kppnInti.clear();
+    
+    ObjecProject.kppnInti.sendKeys(Inti);
+}
+public void inpudescripttionArea(String DEs){ 
+    ObjecProject.descripttionArea.sendKeys(DEs);
+}
+public void clickSave() throws InterruptedException{ 
+   
+    ObjecProject.saveee.click();
+    Thread.sleep(3000);
+}
+public void clicktitle(){ 
+    ObjecProject.title.click();
+}
+public void createAnewTask(String user, String pass,String Summ,String assign, String Inti, String DEs ) throws InterruptedException{ 
+    objLogin.login(user,pass);
+   GotoProjectPage();
+   clickVSIIProject();
+    selectkhacphucphongngua();
+    clicktitle();
+    clickkhacphucphongnguataskBtn();
+   clickCreate();
+    iputTakSumm(Summ);
+    iputAssign(assign);
+    inpuInti(Inti);
+    inpudescripttionArea(DEs);         
+    clickSave();
+}
+public void clickKppnTaskTitle(){ 
+    ObjecProject.kppnTasktitle.click();
+}
+public void clickkppnEditBtn(){ 
+    titletoclick();
+    ObjecProject.kppnEditBtn.click();
+}
+public void clickkppnRelatedTab(){ 
+    ObjecProject.kppnRelatedTab.click();
+}
+public void clickkppnAddRelatedBtn() throws InterruptedException{ 
+    //Thread.sleep(3000);
+    ObjecProject.kppnAddRelatedBtn.click();
+}
+public void clickgiaiphap(){ 
+    ObjecProject.giaiphap.click();
+}
+public void clickphantich(){ 
+    ObjecProject.phantich.click();
+}
+public void clickpheduyet(){ 
+    ObjecProject.pheduyet.click();
+}
+public void titletoclick(){ 
+    ObjecProject.titletoclick.click();
+}
+public void clickTaskLinkTex(){ 
+    ObjecProject.TaskLinkTex.click();
+}
+public void inputGiaiPhaptoDescription(String Descrip){ 
+    ObjecProject.descripttionArea.clear();
+    ObjecProject.descripttionArea.sendKeys(Descrip);  
+     
+}
+public void inputDescription(String Descrip){ 
+    ObjecProject.descripttionArea.clear();
+     ObjecProject.descripttionArea.sendKeys(Descrip);     
+}
+public void goToKhacPhucPhongNguaTasks(){ 
+    GotoProjectPage();
+    clickVSIIProject();
+    selectkhacphucphongngua();   
+    clicktitle();
+  clickkhacphucphongnguataskBtn(); 
+  clickKppnTaskTitle();
+  clicktitle();
+}
+public void editTaskToPhanTichSucc(String Descrip, String Descripex, String StageExp) throws InterruptedException{ 
+    clickphantich();
+   inputDescription(Descrip);
+    clickSave();
+    Assert.assertEquals(ObjecProject.epctdescripttion.getText(), Descripex);
+    clickTaskLinkTex();
+    Assert.assertEquals(ObjecProject.StageCol.getText(), StageExp);    
+}
+public void editTaskToGiaiPhapSucc(String Descrip, String Descripex, String StageExp) throws InterruptedException{ 
+    clickgiaiphap();
+   inputGiaiPhaptoDescription(Descrip);
+    clickSave();
+    Assert.assertEquals(ObjecProject.epctdescripttion.getText(), Descripex);
+    clickTaskLinkTex();
+    Assert.assertEquals(ObjecProject.StageCol.getText(), StageExp);     
+}
+public void editTaskToPheDuyetSucc(String note, String Descripex, String StageExp) throws InterruptedException{ 
+    clickpheduyet();
+    logAnoteSucc(note);
+    Assert.assertEquals(ObjecProject.actLog.getText(), Descripex);
+    clickTaskLinkTex();
+    Assert.assertEquals(ObjecProject.StageCol.getText(), StageExp);     
+}
+public void editTaskToThucHienGiaiPhapSucc(String note, String Descripex, String StageExp) throws InterruptedException{ 
+    clickthuchiengiaiphap();
+    logAnoteSucc(note);
+    Assert.assertEquals(ObjecProject.actLog.getText(), Descripex);
+    clickTaskLinkTex();
+    Assert.assertEquals(ObjecProject.StageCol.getText(), StageExp);     
+}
+public void clickthuchiengiaiphap(){ 
+    ObjecProject.thuchiengiaiphap.click();
+}
+public void clickkiemtra1(){ 
+    ObjecProject.kiemtra1.click();
+}
+public void clickaddAnItem(){ 
+    ObjecProject.addAnItem.click();
+    ObjecProject. content.click();
+    ObjecProject. content.sendKeys("123");
+    ObjecProject. timeSpent.clear();
+    ObjecProject. timeSpent.sendKeys("12");
+}
+public void editTaskToKiemtra1Succ(String user, String pass, String Description, String Descripex, String StageExp) throws InterruptedException{ 
+    objLogin.login(user,pass);   
+    GotoProjectPage();
+    clickVSIIProject();
+    selectkhacphucphongngua();
+    clicktitle();
+    clickkhacphucphongnguataskBtn(); 
+    clickKppnTaskTitle();
+    clickkiemtra1();
+    clickkppnEditBtn();
+    inputDescription(Description);
+    clickSave();  
+    Assert.assertEquals(ObjecProject.epctdescripttion.getText(), Descripex);
+    clickTaskLinkTex();
+    Assert.assertEquals(ObjecProject.StageCol.getText(), StageExp); 
 }
 
 }

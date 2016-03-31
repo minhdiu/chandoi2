@@ -3,7 +3,7 @@ package com.vsii.tsc.guru.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DiuTTM_ProjectPage
+public class ISMS_ProjectPage
 {   @FindBy(xpath = "//*[contains(text(),'Project')]")
     public WebElement Project_btn;
 
@@ -142,16 +142,16 @@ public class DiuTTM_ProjectPage
    @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div/div/div[4]/div/div[4]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[1]/td[2]/span/div/input")
    public WebElement Task_ProjectDrop; 
    
-   @FindBy(xpath = "html/body/div[6]/div[2]/div/div/div[3]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[2]/td[2]/span/div/span[2]")
+   @FindBy(xpath = "html/body/div[2]/div[2]/div/div/div[3]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[2]/td[2]/span/div/span[2]/img")
    public WebElement Task_AssigntoDrop; 
    
-   @FindBy(xpath = "html/body/div[6]/div[2]/div/div/div[3]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[4]/td[2]/span/div/input")
+   @FindBy(xpath = "html/body/div[2]/div[2]/div/div/div[3]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[4]/td[2]/span/div/span[2]/img")
    public WebElement Task_TypeDrop; 
    
    @FindBy(xpath = "//*[@class='field_boolean']")
    public WebElement Task_IsbillDrop; 
    
-   @FindBy(xpath = "html/body/div[6]/div[2]/div/div/div[3]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[6]/td[2]/span/div/input")
+   @FindBy(xpath = "html/body/div[2]/div[2]/div/div/div[3]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[6]/td[2]/span/div/span[2]/img")
    public WebElement Task_ProjPhaseDrop; 
    
    @FindBy(xpath = "//span[@class='oe_form_field oe_form_field_float']/input")
@@ -160,7 +160,7 @@ public class DiuTTM_ProjectPage
    @FindBy(xpath = "//input[@class='oe_datepicker_master']")
    public WebElement Task_deadLineTxb; 
    
-   @FindBy(xpath = "html/body/div[6]/div[2]/div/div/div[3]/div/div/div[1]/div/table/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/div/div/div/div[1]")
+   @FindBy(xpath = "html/body/div[2]/div[2]/div/div/div[3]/div/div/div[1]/div/table/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/div/div/div/div[3]")
    public WebElement Task_Tags; 
    
    @FindBy(xpath = "//span[@class='oe_form_field oe_form_field_progressbar ui-progressbar ui-widget ui-widget-content ui-corner-all']")
@@ -175,9 +175,112 @@ public class DiuTTM_ProjectPage
    public WebElement Task_RelatedTab;
    @FindBy(xpath = "//*[@class='ui-dialog-title']")
    public WebElement Task_Title;
-   @FindBy(xpath = "//*[@class='ui-dialog-title']")
-   public WebElement Task_Title;
- //table/thead/tr[1]/th/div[1]/button[1]
+   @FindBy(xpath = " //table/thead/tr[1]/th/div[1]/button[1]")
+   public WebElement addBtn;
+   @FindBy(xpath = "(//input[@name='radiogroup'])[1]")
+   public WebElement selectIssue_chb;
+   @FindBy(xpath = "html/body/div[2]/div[11]/button[1]")
+   public WebElement SelectBtn;
+   @FindBy(xpath = "(html/body/div[2]/div[2]/table/tbody/tr[3]/td/div/div/table/tbody/tr/td[2])[1]")
+   public WebElement featureDescripTitle;
+   @FindBy(xpath = "/table/tbody/tr[3]/td/div/div/table/tbody/tr[1]/td[3]")
+   public WebElement contactTitle;
+   @FindBy(css = "   .oe_list_field_cell.oe_list_field_char.oe_required")
+   public WebElement ExpfeatureDescripTitle;
+   @FindBy(xpath = "   html/body/div[2]/div[2]/div/div/div[3]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[2]/td[2]/span/div/input")
+   public WebElement taskassignto_txb;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div/div/div[1]/div/table/tbody[1]/tr/th/span[2]")
+   public WebElement VSIIProject;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div/div/div[1]/div/table/tbody[2]/tr[8]/td[3]")
+   public WebElement khacphucphongngua;
    
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div/div/div[3]/div/div[4]/div/div/div[1]/div/div[2]/button[1]/span")
+   public WebElement khacphucphongnguataskBtn;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/table/tbody/tr[2]/td[1]/div/div/button[1]")
+   public WebElement Create;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[1]/td[2]/span/div/input")
+   public WebElement kppnprojname;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[2]/td[2]/span/div/input")
+   public WebElement kppnassignTo;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[4]/td[2]/span/div/input")
+   public WebElement kppnTaskType;
+   @FindBy(xpath = "(//*[@class='field_boolean'])[1]")
+   public WebElement kppnisBillChk;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/h1/span/input")
+   public WebElement kppnTaskSum;
    
-}
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[6]/td[2]/span/div/input")
+   public WebElement kppnprojphase;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/table/tbody/tr/td[1]/table/tbody/tr[8]/td[2]/span/input")
+   public WebElement kppnInti;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/table/tbody/tr/td[2]/table/tbody/tr[1]/td[2]/span/span/input[2]")
+   public WebElement kppndeadline;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/table/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/div/div/div/div[1]")
+   public WebElement kppnTags;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/table/tbody/tr/td[2]/table/tbody/tr[3]/td[2]/span/span")
+   public WebElement kppnprogress;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/div/ul/li[1]/a")
+   public WebElement kppnDEscripTab;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/div/ul/li[2]/a")
+   public WebElement kppnDeligationTab;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/div/ul/li[2]/a")
+   public WebElement kppnExtrTab;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/div/ul/li[4]/a")
+   public WebElement kppnRelatedTab;
+   
+   @FindBy(xpath = ".//*[@class='field_text']")
+   public WebElement descripttionArea;
+   @FindBy(xpath = "//div[1]/span[@class='oe_form_text_content']")
+   public WebElement epctdescripttion;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[1]/div/h1/span/span")
+   public WebElement titletoclick;
+   
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/header/ul/li[1]/span[1]")
+   public WebElement mota;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/header/ul/li[2]/span[1]")
+   public WebElement phantich;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/header/ul/li[3]/span[1]")
+   public WebElement giaiphap;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/header/ul/li[4]/span[1]")
+   public WebElement pheduyet;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/header/ul/li[5]/span[1]")
+   public WebElement thuchiengiaiphap;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/header/ul/li[6]/span[1]")
+   public WebElement kiemtra1;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/header/ul/li[7]/span[1]")
+   public WebElement kiemtra2;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/header/ul/li[8]/span[1]")
+   public WebElement dong;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/header/ul/li[9]/span[1]")
+   public WebElement huybo;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/table/tbody/tr[2]/td[1]/div/div[2]/span[2]/button")
+   public WebElement saveee;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div/div/div[3]/div/div[4]/div/div/div[1]/div/div[1]/h1/span/span")
+   public WebElement title;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[1]/div/table/tbody/tr[1]/td[1]")
+   public WebElement kppnTasktitle;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/table/tbody/tr[2]/td[1]/div/div[2]/span[1]/div/button")
+   public WebElement kppnEditBtn;
+   @FindBy(xpath = "(//button[@type='button'])[31]")
+   public WebElement kppnAddRelatedBtn;
+   @FindBy(linkText = "Tasks")
+   public WebElement TaskLinkTex;
+   @FindBy(xpath = "(html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[1]/div/table/tbody/tr/td[9])[1]")
+   public WebElement StageCol;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[2]/div[2]/div/div[1]/div/a[2]")
+   public WebElement logAnoteBtn2;
+   @FindBy(xpath = "//*[@class='field_text']")
+   public WebElement logArea;
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[2]/div[2]/div/div[1]/div[2]/div[2]/button")
+   public WebElement LogBtn;
+   
+   @FindBy(xpath = "html/body/div[1]/table/tbody/tr[3]/td[2]/div/div[2]/div/div[3]/div/div[4]/div/div/div[2]/div[2]/div/div[2]/div[1]/div[2]/div[2]/div/p")
+   public WebElement actLog;
+   @FindBy(linkText = "Add an item")
+   public WebElement addAnItem;
+   @FindBy(xpath = ".//*[@class='oe_form_field oe_form_field_char']/span")
+   public WebElement content;
+   @FindBy(xpath = " //div[2]/div/div/div/div/div/div/div[4]/div/div/span[2]/input")
+   public WebElement timeSpent;
+
+   }

@@ -2,23 +2,26 @@ package com.vsii.tsc.guru.pages.method;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import com.vsii.tsc.guru.pages.DiuTTM_ISMSPage;
+import com.vsii.tsc.guru.pages.ISMSPage;
+import com.vsii.tsc.utility.TestBase;
 
-public class DiuTTM_ISMSMethod
+public class ISMSMethod
 {    
     //Logger log = Logger.getLogger("minhdiu");
     
     WebDriver driver;
+    ISMS_LoginPageMethod objLogin = new ISMS_LoginPageMethod(TestBase.driver);
+    public ISMSPage objISMSPage = new ISMSPage();
 
-    public DiuTTM_ISMSPage objISMSPage = new DiuTTM_ISMSPage();
-
-    public DiuTTM_ISMSMethod(WebDriver driver) {
+    public ISMSMethod(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, objISMSPage);      
     }
@@ -35,6 +38,9 @@ public void ClickComposeISMSRequest(){
 }
 public void ClickISMSissue(){
     objISMSPage.ISMSIssue.click();
+}
+public void ClickAssetCategories(){
+    objISMSPage.AssetCategories.click();
 }
 
 public void VerifyISMSAdmin(){
@@ -160,6 +166,105 @@ public void VerrifyISMSIssuesListdisplayedcorrectly(){
     objISMSPage.progressCol.isDisplayed();
     objISMSPage.StageCol.isDisplayed();
    
+}
+public void VerrifyAssetManagedisplayedcorrectly(){
+    objISMSPage.assetCatename.isDisplayed();
+    objISMSPage.assetparentCategory.isDisplayed();
+    objISMSPage.assetSequence.isDisplayed();
+    objISMSPage.assetDescrip.isDisplayed();
+    Assert.assertEquals(objISMSPage.assetCatename.getText(), "");
+    Assert.assertEquals(objISMSPage.assetparentCategory.getText(), "");
+    Assert.assertEquals(objISMSPage.assetDescrip.getText(), "");
+}
+public void VerrifyAssetCompanydisplayedcorrectly(){
+    objISMSPage.assetCatename.isDisplayed();
+    objISMSPage.assetparentCategory.isDisplayed();
+    objISMSPage.assetSequence.isDisplayed();
+    objISMSPage.assetDescrip.isDisplayed();
+    objISMSPage.AssetpopularIssue.isDisplayed();
+    objISMSPage.AssetpopularIssueName.isDisplayed();
+    objISMSPage.AssetpopularIssuePriority.isDisplayed();
+    objISMSPage.AssetpopularIssueType.isDisplayed();
+    
+    Assert.assertEquals(objISMSPage.assetCatename.getText(), "");
+    Assert.assertEquals(objISMSPage.assetparentCategory.getText(), "");
+    Assert.assertEquals(objISMSPage.assetDescrip.getText(), "");
+}
+public void ClickSaveAsset(){    
+    objISMSPage.assetSaveBtn.click();
+}
+public void ClickassetCreatBtn(){ 
+    objISMSPage.assetTitle.click();
+    
+    objISMSPage.assetCreatBtn.click();
+}
+public void verifyerrormsg() throws InterruptedException{ 
+    WebElement element = driver.findElement(By.cssSelector(".ui-state-error.ui-notify-message.ui-notify-message-style:first-child>ul>li"));
+    WebElement element1 = driver.findElement(By.cssSelector(".ui-state-error.ui-notify-message.ui-notify-message-style:first-child>h1"));
+    Assert.assertEquals(element.getText(), "Name");
+    Assert.assertEquals(element1.getText(), "The following fields are invalid:");
+    Thread.sleep(10);
+    
+}
+public void inputAssetName(String Name){    
+    objISMSPage.assetCatename.sendKeys(Name);
+}
+public void createAssetCategories(String user, String pass, String Name) throws InterruptedException{ 
+    objLogin.login(user,pass);
+    GotoISMSPage();
+    ClickAssetCategories(); 
+    clickexistCate();   
+    inputAssetName(Name);
+    ClickSaveAsset();    
+}
+public String actualName(){    
+   return objISMSPage.AssetexpectName.getText();    
+}   
+public String actualParent(){    
+    return objISMSPage.Assetexpectparent.getText();    
+ }   
+public String actuaSeq(){    
+    return objISMSPage.expectSeq.getText();    
+ }   
+public String actualDes(){    
+    return objISMSPage.expectDes.getText();    
+ }   
+public void clickexistCate(){    
+    if(objISMSPage.existCate.getSize()!=null)
+        {
+        objISMSPage.radioBtn.click();        
+        objISMSPage.moreBtn.click();
+        objISMSPage.deleteBtn.click();
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+        ClickassetCreatBtn();}
+    
+        else 
+            ClickassetCreatBtn();
+}
+
+public void clickdeleteBtn(){      
+    objISMSPage.deleteBtn.click();
+}
+
+public void clickAsset(){      
+    objISMSPage.Assets.click();
+}
+public void createAssetCompany(String user, String pass) throws InterruptedException{ 
+    objLogin.login(user,pass);
+    GotoISMSPage();
+    clickAsset(); 
+    ClickassetCreatBtn();
+    ClickSaveAsset();    
+}
+public String getErrTit(){      
+    return objISMSPage.errmsgTit.getText();
+}
+public String geterrmsCont1(){      
+    return objISMSPage.errmsCont1.getText();
+}
+public String geterrmsCont2(){      
+    return objISMSPage.errmsCont2.getText();
 }
 }
 

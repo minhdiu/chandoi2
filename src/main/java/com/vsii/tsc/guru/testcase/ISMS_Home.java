@@ -6,20 +6,20 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.vsii.tsc.guru.pages.method.DiuTTM_ISMSMethod;
-import com.vsii.tsc.guru.pages.method.DiuTTM_LoginPageMethod;
+import com.vsii.tsc.guru.pages.method.ISMSMethod;
+import com.vsii.tsc.guru.pages.method.ISMS_LoginPageMethod;
 import com.vsii.tsc.guru.testdata.TestData;
 import com.vsii.tsc.utility.CommonOperations;
 import com.vsii.tsc.utility.TestBase;
 
-public class DiuTTM_Home 
+public class ISMS_Home extends TestBase
 {
-    DiuTTM_LoginPageMethod objLogin; 
-    DiuTTM_ISMSMethod objISMS;
+    ISMS_LoginPageMethod objLogin; 
+    ISMSMethod objISMS;
     @BeforeClass
     public void setupClass() throws NumberFormatException, IOException {
-        objLogin = new DiuTTM_LoginPageMethod(TestBase.driver);
-        objISMS = new DiuTTM_ISMSMethod(TestBase.driver);
+        objLogin = new ISMS_LoginPageMethod(TestBase.driver);
+        objISMS = new ISMSMethod(TestBase.driver);
     }
 
    @Test(priority = 0, description = "Verify OpenERP can open correctly")
@@ -48,6 +48,7 @@ public class DiuTTM_Home
   public void afterMethod() throws Exception {
    CommonOperations.takePicture();
   //TestBase.driver.quit();
+   TestBase.driver.manage().deleteCookieNamed("__utmb");
  }
 
 //   @AfterClass

@@ -8,18 +8,18 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
 import com.relevantcodes.extentreports.ExtentReports;
-import com.vsii.tsc.guru.pages.DiuTTM_LoginPage;
+import com.vsii.tsc.guru.pages.ISMS_LoginPage;
 
-public class DiuTTM_LoginPageMethod {	
+public class ISMS_LoginPageMethod {	
 	ExtentReports extent;
 	
 	Logger log = Logger.getLogger("trunghung");
 	
 	WebDriver driver;
 
-	public DiuTTM_LoginPage objLoginPage = new DiuTTM_LoginPage();
+	public ISMS_LoginPage objLoginPage = new ISMS_LoginPage();
 
-	public DiuTTM_LoginPageMethod(WebDriver driver) {
+	public ISMS_LoginPageMethod(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, objLoginPage);
 		log.debug("Initiate web driver");
